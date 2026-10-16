@@ -1,10 +1,12 @@
 # Product Catalogue Integration
 
-This repository contains the existing implementation of a product catalogue integration.
+This repository contains a production-oriented catalogue synchronisation flow for the engineering challenge.
 
-The implementation currently works for the existing small-scale environment.
+It addresses the key risks from the assessment: paginated PIM reads, rate-limit retry logic, duplicate prevention, partial WMS success handling, run-state visibility, and local S3-compatible export retention.
 
-You have been asked to take ownership of the solution and prepare it for the next stage of the platform.
+The required challenge documents are included in this repository:
+- ARCHITECTURE.md
+- UNFINISHED.md
 
 See the assessment document supplied separately for the business context, requirements and deliverables.
 

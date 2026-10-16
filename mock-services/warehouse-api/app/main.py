@@ -13,8 +13,8 @@ def process_batch(payload:dict,x_api_key:str|None=Header(default=None)):
     if not isinstance(products,list): raise HTTPException(400,"products must be an array")
     if len(products)>MAX_BATCH_SIZE: raise HTTPException(413,"Maximum batch size is 100")
     request_count+=1
-    if request_count%11==0: return JSONResponse(429,{"detail":"Warehouse API rate limit exceeded"},headers={"Retry-After":"1"})
-    if request_count%17==0: return JSONResponse(503,{"detail":"Warehouse API temporarily unavailable"},headers={"Retry-After":"2"})
+    if request_count%11==0: return JSONResponse(status_code=429, content={"detail":"Warehouse API rate limit exceeded"},headers={"Retry-After":"1"})
+    if request_count%17==0: return JSONResponse(status_code=503, content={"detail":"Warehouse API temporarily unavailable"},headers={"Retry-After":"2"})
     accepted=[]; rejected=[]
     for item in products:
         sku=item.get("sku")
